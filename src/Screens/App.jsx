@@ -18,6 +18,12 @@ const App = () => {
     const [displayName, setDisplayName] = useState('')
     const [image, setImage] = useState("https://firebasestorage.googleapis.com/v0/b/coin-ab637.appspot.com/o/Profiles%2Fprofile.jpg?alt=media&token=19d30fce-c1a6-4057-a9e0-e3a5c66caf38")
     const [trending, setTrending] = useState([])
+    const [coins, setCoins] = useState(0)
+    const [votes, setVotes] = useState(0)
+    const [cap, setCap] = useState(0)
+    const [oneTrending, setOneTrending] = useState([])
+    const [recently, setRecently] = useState([])
+    const [header, setHeader] = useState({})
 
 
 
@@ -30,19 +36,40 @@ const App = () => {
     }, [currentUser, currentUser.photoURL])
 
     useEffect(() => {
-        const CoinsRef = ref(db, '/coins');
-        onValue(CoinsRef, (snapshot) => {
-            let coinList = [];
+
+        const DataRef = ref(db, '/dataHeader');
+        onValue(DataRef, (snapshot) => {
             snapshot.forEach(childSnapshot => {
                 const childKey = childSnapshot.key;
                 const childData = childSnapshot.val();
+                setHeader(childData)
+            })
+
+        })
+
+
+        const CoinsRef = ref(db, '/coins');
+        onValue(CoinsRef, (snapshot) => {
+            let coinList = [];
+            let voteCount = 0
+            let coinCount = 0
+            let capCount = 0
+            snapshot.forEach(childSnapshot => {
+                const childKey = childSnapshot.key;
+                const childData = childSnapshot.val();
+                coinCount += 1
+                voteCount += childData.votes
+                capCount += parseInt(childData.cap)
                 childData.addedDate = JSON.parse(childData.addedDate)
                 childData.addedDate = new DateObject(childData.addedDate)
                 coinList.push({ key: childKey, coin: childData });
             });
+
+            setCoins(coinCount)
+            let dollarUSLocale = Intl.NumberFormat('en-US');
+            setVotes(dollarUSLocale.format(voteCount))
+            setCap(dollarUSLocale.format(capCount))
             if (search.length === 0) {
-                console.log("here");
-                console.log(search);
                 const trendingList = coinList.slice().sort(function (a, b) {
                     return b.coin.votes - a.coin.votes;
                 }).slice(0, 5);
@@ -55,6 +82,18 @@ const App = () => {
                 setTrending(filteredList)
             }
 
+            const trendingCoin = coinList.slice().sort(function (a, b) {
+                return b.coin.votes - a.coin.votes;
+            }).slice(0, 5);
+            setOneTrending(trendingCoin);
+
+            const recentlyList = coinList
+                .slice()
+                .sort(function (a, b) {
+                    return b.coin.addedDate - a.coin.addedDate;
+                })
+                .slice(0, 3);
+            setRecently(recentlyList);
         }, (error) => console.log(error))
     }, [currentUser, search]);
 
@@ -65,6 +104,7 @@ const App = () => {
         localStorage.removeItem("currentUser")
         setsidebar(false)
     }
+
 
     return (
         <>
@@ -299,6 +339,24 @@ const App = () => {
                             </li>
                         </ul>
                     </aside>
+                </div>
+            </div>
+            <div className='w-full hidden bg-secondary md:flex flex-row justify-center'>
+                <div className='flex flex-row items-center text-center text-[11px] mt-[72px] py-[12px] gap-x-4 opacity-80 hover:opacity-100' style={{ transition: 'all .2s ease' }}>
+                    <p>Coins: <span className='text-primary'>{coins}</span></p>
+                    <p>Votes: <span className='text-primary'>{votes}</span></p>
+                    <p>Market Cap: <span className='text-primary'>{cap}</span></p>
+                    <p>BTC: <span className='text-primary'>${header.btc}</span></p>
+                    <p>ETH: <span className='text-primary'>${header.eth}</span></p>
+                    <p>BNB: <span className='text-primary'>${header.bnb}</span></p>
+                    <div className='flex flex-row gap-x-2 items-center text-center cursor-pointer' onClick={() => navigate(`/coin/${oneTrending[0]?.coin.name}`, { state: oneTrending[0] })}>
+                        <img className='w-[20px]' src={oneTrending[0]?.coin.coinLogo} alt="" />
+                        <p>{oneTrending[0]?.coin.name}</p>
+                    </div>
+                    <div className='flex flex-row gap-x-2 items-center text-center cursor-pointer' onClick={() => navigate(`/coin/${recently[0]?.coin.name}`, { state: recently[0] })}>
+                        <img className='w-[20px]' src={recently[0]?.coin.coinLogo} alt="" />
+                        <p>{recently[0]?.coin.name}</p>
+                    </div>
                 </div>
             </div>
 

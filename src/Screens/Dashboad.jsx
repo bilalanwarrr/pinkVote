@@ -43,6 +43,7 @@ import linked from "../assets/in.png";
 import new1 from "../assets/new1.jpg";
 import new2 from "../assets/new2.jpg";
 import Token from "./Token";
+import { Pagination } from "./Pagination";
 
 const coinType = [
   {
@@ -114,6 +115,14 @@ const Dashboad = () => {
   const [recaptchaToken, setRecaptchaToken] = useState(null);
   const [recaptchaKey, setRecaptchaKey] = useState(Date.now());
   const [hourError, setHourError] = useState(false);
+  const [currentPage , setCurrentPage] = useState(1);
+  const [perPage] = useState(20);
+
+
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber)
+  }
 
   const captchaRef = useRef(null);
 
@@ -362,6 +371,11 @@ const Dashboad = () => {
       );
     }
   };
+
+  const indexOfLastData = currentPage * perPage;
+  const indexOfFirstData = indexOfLastData - perPage;
+  const currentData = Typefiltered.slice(indexOfFirstData, indexOfLastData)
+
 
   return (
     <div className="mt-[120px] items-center flex justify-center w-full flex-col">
@@ -1006,7 +1020,7 @@ const Dashboad = () => {
             </tr>
           </thead>
           <tbody>
-            {Typefiltered.map((coin) => (
+            {currentData.map((coin) => (
               <tr
                 key={coin.key}
                 onClick={() =>
@@ -1094,8 +1108,14 @@ const Dashboad = () => {
                 </td>
               </tr>
             ))}
+
+
           </tbody>
         </table>
+        <div className="w-full flex justify-center text-primary mt-[8px]">
+          <p>Page:</p>
+        </div>
+          <Pagination perPage={perPage} totalData={Typefiltered.length} paginate={paginate} currentPage={currentPage}/>
       </div>
 
       <div className="flex flex-row justify-center items-center gap-[10px] px-[8px] mt-[20px] md:w-[80%] w-full flex-wrap">
