@@ -169,7 +169,7 @@ const CoinDetails = () => {
                         {/* socials */}
                         <div className='flex flex-wrap flex-row gap-x-1 gap-y-5 mt-[20px]'>
                             <div className={` ${state.coin.website !== "" ? "block" : "hidden"} text-[16px] text-center p-[5px]`}>
-                                <p onClick={() => window.location.replace(state.coin.website)} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
+                                <a  href={state.coin.website} target='_blank' className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M6.5571 19.3782C6.44996 18.714 6.32146 17.971 6.27857 17.721C6.06428 16.5782 5.89289 15.414 5.77857 14.2567C4.59283 14.1424 3.42863 13.971 2.29297 13.7496C2.10722 13.7139 1.38575 13.5496 0.585876 13.3711C1.58587 16.1496 3.78577 18.371 6.55726 19.3784L6.5571 19.3782Z" fill="currentColor" />
                                         <path d="M18.2929 7.83586C17.0285 7.55015 15.7071 7.33586 14.3572 7.19301C14.4929 9.05014 14.5 10.9216 14.3857 12.7717C15.6928 12.6289 17.0072 12.4218 18.2999 12.1502C18.3713 12.1359 19.1069 12.0287 19.8071 11.9216C19.9356 11.3001 20 10.6572 20 10.0002C20 9.37872 19.9429 8.77877 19.8286 8.19318C19.093 8.01461 18.3571 7.84322 18.2929 7.83604L18.2929 7.83586Z" fill="currentColor" />
@@ -182,100 +182,100 @@ const CoinDetails = () => {
                                         <path d="M7.22852 14.3856C7.37137 15.6998 7.57848 17.0071 7.85002 18.2998C7.87139 18.3997 8.01424 19.2926 8.10002 19.8141C8.71434 19.9356 9.35001 19.9999 10 19.9999C10.6285 19.9999 11.2429 19.9428 11.8358 19.8285C11.9573 19.2784 12.1501 18.3856 12.1644 18.2928C12.4501 17.0284 12.6644 15.707 12.8073 14.3571C11.8145 14.4285 10.8145 14.4642 9.81449 14.4642C8.94298 14.4642 8.08585 14.4357 7.22871 14.3856L7.22852 14.3856Z" fill="currentColor" />
                                     </svg>
                                     Website
-                                </p>
+                                </a>
                             </div>
                             <div className={` ${state.coin.telegram !== "" ? "block" : "hidden"} text-[16px] text-center p-[5px]`}>
-                                <Link to={`${state.coin.telegram}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
+                                <a href={state.coin.telegram} target='_blank' className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
                                     <img className='w-[20px]' src={Telegram} alt="" />
                                     Telegram
-                                </Link>
+                                </a>
                             </div>
                             <div className={`${state.coin.twitter !== "" ? "block" : "hidden"} text-[16px] text-center p-[5px]`}>
-                                <Link to={`${state.coin.twitter}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
+                                <a href={state.coin.twitter} target='_blank' className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
                                     <img className='w-[20px]' src={Twitter} alt="" />
                                     Twitter
-                                </Link>
+                                </a>
                             </div>
                             <div className={`${state.coin.insta !== "" ? "block" : "hidden"} text-[16px] text-center p-[5px]`}>
-                                <Link to={`${state.coin.insta}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
+                                <a href={state.coin.insta} target='_blank' className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
                                     <img className='w-[20px]' src={Instagram} alt="" />
                                     Instagram
-                                </Link>
+                                </a>
                             </div>
                             <div className={`${state.coin.youtube !== "" ? "block" : "hidden"} text-[16px] text-center p-[5px]`}>
-                                <Link to={`${state.coin.youtube}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
+                                <a href={state.coin.youtube} target='_blank' className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
                                     <img className='w-[20px]' src={Youtube} alt="" />
                                     Youtube
-                                </Link>
+                                </a>
                             </div>
                             <div className={`${state.coin.discord !== "" ? "block" : "hidden"} text-[16px] text-center p-[5px]`}>
-                                <Link to={`${state.coin.discord}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
+                                <a href={state.coin.discord} target='_blank' className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
                                     <img className='w-[20px]' src={Discord} alt="" />
                                     Discord
-                                </Link>
+                                </a>
                             </div>
                             <div className={`${state.coin.reddit !== "" ? "block" : "hidden"} text-[16px] text-center p-[5px]`}>
-                                <Link to={`${state.coin.reddit}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
+                                <a href={state.coin.reddit} target='_blank' className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
                                     <img className='w-[20px]' src={Reddit} alt="" />
                                     Reddit
-                                </Link>
+                                </a>
                             </div>
 
                             {/* COINSSS LINKS */}
                             <div className={`text-[16px] text-center p-[5px]`}>
-                                <Link to={`https://coinbrain.com/coins/${state.coin.symbol.toLowerCase()}-${state.coin.address}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
+                                <a target='_blank' href={`https://coinbrain.com/coins/${state.coin.symbol.toLowerCase()}-${state.coin.address}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
                                     <img className='w-[20px]' src={CoinBrain} alt="" />
                                     Coinbrain
-                                </Link>
+                                </a>
                             </div>
                             <div className={`text-[16px] text-center p-[5px]`}>
-                                <Link to={`https://swap.arken.finance/tokens/${state.coin.chain.toLowerCase()}/${state.coin.address}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
+                                <a target='_blank' href={`https://swap.arken.finance/tokens/${state.coin.chain.toLowerCase()}/${state.coin.address}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
                                     <img className='w-[20px]' src={Arken} alt="" />
                                     Arken Swap
-                                </Link>
+                                </a>
                             </div>
                             <div className={`text-[16px] text-center p-[5px]`}>
-                                <Link to={`https://geckoterminal.com/${state.coin.chain.toLowerCase()}/pools/${state.coin.address}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
+                                <a target='_blank' href={`https://geckoterminal.com/${state.coin.chain.toLowerCase()}/pools/${state.coin.address}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
                                     <img className='w-[20px]' src={Gecko} alt="" />
                                     GeckoTerminal
-                                </Link>
+                                </a>
                             </div>
 
                             <div className={`${state.coin.pooCoin ? "block" : "hidden"} text-[16px] text-center p-[5px]`}>
-                                <Link to={`https://poocoin.app/tokens/${state.coin.address}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
+                                <a target='_blank' href={`https://poocoin.app/tokens/${state.coin.address}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
                                     <img className='w-[20px]' src={PooCoin} alt="" />
                                     Poocoin
-                                </Link>
+                                </a>
                             </div>
                             <div className={`${state.coin.coingecko ? "block" : "hidden"} text-[16px] text-center p-[5px]`}>
-                                <Link to={`https://www.coingecko.com/en/coins/${state.coin.name.toLowerCase().replace(" ", "-")}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
+                                <a target='_blank' href={`https://www.coingecko.com/en/coins/${state.coin.name.toLowerCase().replace(" ", "-")}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
                                     <img className='w-[20px]' src={Coingecko} alt="" />
                                     Coingecko
-                                </Link>
+                                </a>
                             </div>
                             <div className={`${state.coin.pancakeswap ? "block" : "hidden"} text-[16px] text-center p-[5px]`}>
-                                <Link to={`https://pancakeswap.finance/swap?outputCurrency=${state.coin.address}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
+                                <a target='_blank' href={`https://pancakeswap.finance/swap?outputCurrency=${state.coin.address}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
                                     <img className='w-[20px]' src={PancakeSwap} alt="" />
                                     PanCakeSwap
-                                </Link>
+                                </a>
                             </div>
                             <div className={`${state.coin.coinMarketCap ? "block" : "hidden"} text-[16px] text-center p-[5px]`}>
-                                <Link to={`https://coinmarketcap.com/currencies/${state.coin.name.toLowerCase().replace(" ", "-")}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
+                                <a target='_blank' href={`https://coinmarketcap.com/currencies/${state.coin.name.toLowerCase().replace(" ", "-")}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
                                     <img className='w-[20px]' src={CoinMarketCap} alt="" />
                                     CoinMarketCap
-                                </Link>
+                                </a>
                             </div>
                             <div className={`${state.coin.uniswap ? "block" : "hidden"} text-[16px] text-center p-[5px]`}>
-                                <Link to={`https://app.uniswap.org/#/tokens/${state.coin.chain.toLowerCase()}/${state.coin.address}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
+                                <a target='_blank' href={`https://app.uniswap.org/#/tokens/${state.coin.chain.toLowerCase()}/${state.coin.address}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
                                     <img className='w-[20px]' src={UniSwap} alt="" />
                                     Uniswap
-                                </Link>
+                                </a>
                             </div>
                             <div className={`${state.coin.dextools ? "block" : "hidden"} text-[16px] text-center p-[5px]`}>
-                                <Link to={`https://www.dextools.io/app/en/ether/pair-explorer/${state.coin.address}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
+                                <a target='_blank' href={`https://www.dextools.io/app/en/ether/pair-explorer/${state.coin.address}`} className='flex flex-row items-center justify-center gap-x-2 font-bold min-w-[80px] text-center text-white hover:text-primary hover:bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
                                     <img className='w-[20px]' src={Dextools} alt="" />
                                     Dextools
-                                </Link>
+                                </a>
                             </div>
                         </div>
 
