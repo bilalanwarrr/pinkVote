@@ -1069,7 +1069,7 @@ const Dashboad = () => {
                   {}
                 </td>
                 <td className="hidden md:table-cell align-middle text-[16px] text-white">
-                  $ {coin.coin.cap.toString().slice(0, 6)}
+                  $ {coin.coin.cap?.toString().slice(0, 6)}
                 </td>
                 <td className="hidden md:table-cell align-middle text-[16px] text-white">{`${dateDifference(
                   coin.coin.launchDate

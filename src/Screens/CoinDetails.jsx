@@ -281,18 +281,14 @@ const CoinDetails = () => {
 
                         <div onClick={async () => {
                             let flag = false;
-
                             navigator.clipboard.writeText(state.coin.address)
-                        }} className="block text-[11px] text-center p-[5px] my-10 w-[50%]">
-                            <div className='flex flex-row items-center gap-x-2 font-bold min-w-[80px] text-center text-primary bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
-                                <img src={Ethereum} alt="" />
+                        }} className="text-[11px] text-center p-[5px] my-10 flex">
+                            <div className='flex flex-row flex-wrap items-center gap-x-2 font-bold text-center text-primary bg-white border-[2px] border-white rounded-[7px] p-[10px] whitespace-nowrap cursor-pointer'>
                                 <p ref={paragraphRef}>{state.coin.address}</p>
                                 <button className='flex flex-row gap-x-2' onClick={copyToClipboard}>
                                     <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fillRule="evenodd" clipRule="evenodd" d="M8.67058 1.20882V2.05397C8.67036 2.09192 8.68535 2.12825 8.7122 2.15499C8.73893 2.18184 8.77537 2.19671 8.81322 2.1965H9.65814L8.67047 1.20882L8.67058 1.20882ZM2.46384 2.54948V0.771082C2.46405 0.76526 2.46653 0.759654 2.47074 0.755665C2.47483 0.751461 2.48033 0.748981 2.48626 0.748657H8.01901V2.0544C8.01922 2.26463 8.1031 2.46614 8.2521 2.61438L8.25339 2.61567C8.40164 2.76445 8.60303 2.84812 8.81315 2.84823H10.1189V10.966C10.119 10.972 10.1167 10.978 10.1125 10.9825C10.108 10.9866 10.1022 10.9889 10.096 10.9889H8.42677V4.84036L6.13521 2.54943L2.46384 2.54948ZM6.32621 3.66232V4.50746C6.32686 4.58595 6.39036 4.64935 6.46885 4.65H7.314L6.32633 3.66232L6.32621 3.66232ZM7.77459 5.30119H6.46885C6.25829 5.30076 6.05656 5.21688 5.90768 5.0681C5.7588 4.91921 5.67502 4.71738 5.67459 4.50682V3.20108H0.1424C0.136255 3.20097 0.130325 3.20324 0.125904 3.20744C0.121592 3.21154 0.119112 3.21704 0.118896 3.22286V13.4178C0.119436 13.4302 0.129355 13.4402 0.141753 13.4407H7.75169C7.75784 13.4407 7.76377 13.4384 7.76819 13.4343C7.77228 13.4298 7.77455 13.4239 7.77455 13.4178L7.77459 5.30119Z" fill="currentColor" />
                                     </svg>
-
-
                                     Copy
                                 </button>
                             </div>

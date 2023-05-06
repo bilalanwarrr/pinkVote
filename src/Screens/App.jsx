@@ -24,6 +24,7 @@ const App = () => {
     const [oneTrending, setOneTrending] = useState([])
     const [recently, setRecently] = useState([])
     const [header, setHeader] = useState({})
+    const [showSearch, setShowSearch] = useState(false)
 
 
 
@@ -105,6 +106,12 @@ const App = () => {
         setsidebar(false)
     }
 
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            // Handle your custom logic here
+        }
+    };
 
     return (
         <>
@@ -117,7 +124,7 @@ const App = () => {
                         </Link>
 
                         <div className='flex flex-row '>
-                            <button className='hover:bg-white hover:text-gray text-white py-[9px] px-[10px] mr-[15px] border border-transparent rounded-[4px]'>
+                            <button onClick={() => setShowSearch(!showSearch)} className='hover:bg-white hover:text-gray text-white py-[9px] px-[10px] mr-[15px] border border-transparent rounded-[4px]'>
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.4746 19.7175L11.6667 12.9096C11.1017 13.3992 10.4426 13.7806 9.68927 14.0537C8.93597 14.3267 8.13559 14.4633 7.28814 14.4633C5.25424 14.4633 3.53107 13.7571 2.11864 12.3446C0.706215 10.9322 0 9.22787 0 7.23164C0 5.2354 0.706215 3.53107 2.11864 2.11864C3.53107 0.706215 5.24482 0 7.25989 0C9.25612 0 10.9557 0.706215 12.3588 2.11864C13.7618 3.53107 14.4633 5.2354 14.4633 7.23164C14.4633 8.04143 14.3314 8.82298 14.0678 9.57627C13.8041 10.3296 13.4087 11.0358 12.8814 11.6949L19.7458 18.5028C19.9153 18.6535 20 18.8465 20 19.0819C20 19.3173 19.9058 19.5292 19.7175 19.7175C19.548 19.887 19.3409 19.9718 19.096 19.9718C18.8512 19.9718 18.6441 19.887 18.4746 19.7175ZM7.25989 12.7684C8.78531 12.7684 10.0847 12.2269 11.1582 11.1441C12.2316 10.0612 12.7684 8.75706 12.7684 7.23164C12.7684 5.70621 12.2316 4.40207 11.1582 3.31921C10.0847 2.23635 8.78531 1.69492 7.25989 1.69492C5.71563 1.69492 4.40207 2.23635 3.31921 3.31921C2.23635 4.40207 1.69492 5.70621 1.69492 7.23164C1.69492 8.75706 2.23635 10.0612 3.31921 11.1441C4.40207 12.2269 5.71563 12.7684 7.25989 12.7684Z" fill="currentColor" /></svg>
                             </button>
                             <button onClick={() => setsidebar(!sidebar)} className='hover:bg-white hover:text-gray text-white py-[9px] px-[10px] mr-[15px] border border-transparent rounded-[4px]'>
@@ -173,14 +180,14 @@ const App = () => {
                                 <form className='w-full flex relative' autoComplete="off">
                                     <input
                                         className=' focus-visible:outline-none text-ellipsis text-white pl-[40px] bg-inherit placeholder-gray-800'
-                                        type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder={"Search coins..."} name={"search"} autoComplete="on" />
+                                        type="text" value={search} onChange={(e) => setSearch(e.target.value)} onKeyDown={handleKeyDown} placeholder={"Search coins..."} name={"search"} autoComplete="on" />
                                     <span className='inline-flex items-center justify-center text-[#1a1a1a] absolute w-[2.5rem] cursor-pointer text-[15px] left-0 mt-[2px] '>
                                         <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.4746 19.7175L11.6667 12.9096C11.1017 13.3992 10.4426 13.7806 9.68927 14.0537C8.93597 14.3267 8.13559 14.4633 7.28814 14.4633C5.25424 14.4633 3.53107 13.7571 2.11864 12.3446C0.706215 10.9322 0 9.22787 0 7.23164C0 5.2354 0.706215 3.53107 2.11864 2.11864C3.53107 0.706215 5.24482 0 7.25989 0C9.25612 0 10.9557 0.706215 12.3588 2.11864C13.7618 3.53107 14.4633 5.2354 14.4633 7.23164C14.4633 8.04143 14.3314 8.82298 14.0678 9.57627C13.8041 10.3296 13.4087 11.0358 12.8814 11.6949L19.7458 18.5028C19.9153 18.6535 20 18.8465 20 19.0819C20 19.3173 19.9058 19.5292 19.7175 19.7175C19.548 19.887 19.3409 19.9718 19.096 19.9718C18.8512 19.9718 18.6441 19.887 18.4746 19.7175ZM7.25989 12.7684C8.78531 12.7684 10.0847 12.2269 11.1582 11.1441C12.2316 10.0612 12.7684 8.75706 12.7684 7.23164C12.7684 5.70621 12.2316 4.40207 11.1582 3.31921C10.0847 2.23635 8.78531 1.69492 7.25989 1.69492C5.71563 1.69492 4.40207 2.23635 3.31921 3.31921C2.23635 4.40207 1.69492 5.70621 1.69492 7.23164C1.69492 8.75706 2.23635 10.0612 3.31921 11.1441C4.40207 12.2269 5.71563 12.7684 7.25989 12.7684Z" fill="currentColor" /></svg>
                                     </span>
                                 </form>
-                                <div className={`group-focus-within/view:flex hover:flex hidden absolute w-[380px] bg-[#F864D8] pb-[10px] top-[30px] pt-[28px] ml-[-2px] left-0 z-[1000] border-[2px] border-[#e2c5741a]`}>
-                                    <div className='flex flex-col px-[18px] gap-y-2'>
-                                        <h1 className='font-semibold text-[1rem] mb-[8px]'>Trending 🔥</h1>
+                                <div className={`group-focus-within/view:flex hover:flex flex-col hidden absolute w-[380px] bg-[#F864D8] pb-[10px] top-[30px] pt-[28px] ml-[-2px] left-0 z-[1000] border-[2px] border-[#e2c5741a]`}>
+                                        <h1 className='font-semibold text-[1rem] mb-[8px]'>{search !== "" ? 'Search Result' : "Trending 🔥"}</h1>
+                                    <div className=' px-[18px] content flex flex-col overflow-y-scroll gap-y-2 w-full h-[200px]'>
                                         {
                                             trending.map(coin => (
                                                 <div onClick={() => navigate(`/coin/${coin.coin.name}`, { state: coin })} className='group flex flex-row gap-2 cursor-pointer items-center'>
@@ -247,6 +254,7 @@ const App = () => {
 
                         </ul>
                     </div>
+
 
                     <aside className={`${sidebar ? "block lg:hidden left-0 " : "left-full"} h-screen bg-secondary -z-0 w-full right-0  overflow-auto fixed top-0 bottom-0 `} style={{ transition: 'left 0.2s, width 0.2s' }}>
                         <ul className='w-full pt-[80px] px-[15px] pb-0 list-none mb-[10px]'>
@@ -339,6 +347,34 @@ const App = () => {
                             </li>
                         </ul>
                     </aside>
+                </div>
+                <div className={` ${showSearch ? "flex" : "hidden"} md:hidden flex bg-secondary py-3 border-b-4 border-b-primary`}>
+                    <div className='group/view px-[18px] flex flex-col w-full justify-center items-center bg-[#e2c5740d]'>
+                        <form className='w-full flex h-[40px] relative bg-primary border-[#e2e2e2] border-[2px] rounded-t-[10px]' autoComplete="off">
+                            <input
+                                className='w-full relative focus-visible:outline-none text-ellipsis text-white pl-[40px] bg-inherit placeholder-secondary rounded-t-[10px]'
+                                type="text" value={search} onChange={(e) => setSearch(e.target.value)} onKeyDown={handleKeyDown} placeholder={"Search coins..."} name={"search"} autoComplete="on" />
+                            <span className='inline-flex items-center justify-center text-[#1a1a1a] absolute w-[2.5rem] cursor-pointer text-[15px] left-0 mt-[2px] top-[8px] '>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.4746 19.7175L11.6667 12.9096C11.1017 13.3992 10.4426 13.7806 9.68927 14.0537C8.93597 14.3267 8.13559 14.4633 7.28814 14.4633C5.25424 14.4633 3.53107 13.7571 2.11864 12.3446C0.706215 10.9322 0 9.22787 0 7.23164C0 5.2354 0.706215 3.53107 2.11864 2.11864C3.53107 0.706215 5.24482 0 7.25989 0C9.25612 0 10.9557 0.706215 12.3588 2.11864C13.7618 3.53107 14.4633 5.2354 14.4633 7.23164C14.4633 8.04143 14.3314 8.82298 14.0678 9.57627C13.8041 10.3296 13.4087 11.0358 12.8814 11.6949L19.7458 18.5028C19.9153 18.6535 20 18.8465 20 19.0819C20 19.3173 19.9058 19.5292 19.7175 19.7175C19.548 19.887 19.3409 19.9718 19.096 19.9718C18.8512 19.9718 18.6441 19.887 18.4746 19.7175ZM7.25989 12.7684C8.78531 12.7684 10.0847 12.2269 11.1582 11.1441C12.2316 10.0612 12.7684 8.75706 12.7684 7.23164C12.7684 5.70621 12.2316 4.40207 11.1582 3.31921C10.0847 2.23635 8.78531 1.69492 7.25989 1.69492C5.71563 1.69492 4.40207 2.23635 3.31921 3.31921C2.23635 4.40207 1.69492 5.70621 1.69492 7.23164C1.69492 8.75706 2.23635 10.0612 3.31921 11.1441C4.40207 12.2269 5.71563 12.7684 7.25989 12.7684Z" fill="currentColor" /></svg>
+                            </span>
+                        </form>
+                        <div className={` bg-[#F864D8] pb-[10px] pt-[28px] border-[2px] border-[#e2c5741a] w-full rounded-b-[10px]`}>
+                                <h1 className='font-semibold text-[1rem] mb-[8px]'>{search !== "" ? 'Search Result' : "Trending 🔥"}</h1>
+                            <div className='content flex flex-col overflow-y-scroll gap-y-2 w-full h-[200px]'>
+                                {
+                                    trending.map(coin => (
+                                        <div onClick={() => navigate(`/coin/${coin.coin.name}`, { state: coin })} className='group flex flex-row gap-2 cursor-pointer items-center'>
+                                            <div className='group w-[30px] h-[30px] overflow-hidden rounded-[50%]'>
+                                                <img src={coin.coin.coinLogo} alt="" />
+                                            </div>
+                                            <p className='group-hover:text-hover'>{coin.coin.name}</p>
+                                            <p className='text-center bg-white text-primary rounded-[12px] text-[0.7rem] px-[7px] py-[7px]'>{coin.coin.symbol}</p>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className='w-full hidden bg-secondary md:flex flex-row justify-center'>

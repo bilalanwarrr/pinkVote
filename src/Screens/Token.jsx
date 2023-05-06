@@ -287,13 +287,13 @@ const Token = () => {
               The Audit
             </h1>
             <a
-              href={PDF}
-              target={"_blank"}
-              download={"Pinkvote-whitepaper"}
+              // href={PDF}
+              // target={"_blank"}
+              // download={"Pinkvote-whitepaper"}
               className="sm:text-center xs:text-center sm:mb-3 xs:mb-2"
             >
               <button class="md:absolute md:right-[45px] md:top-[90px] bg-cont text-white hover:text-maroon hover:bg-gray md:m-2 sm:m-4 !md:w-[200px] lg:w-[300px] !md:h-[40px] !sm:w-[100px] !sm:h-[20px] lg:h-[60px] py-2 px-3 rounded ">
-                Download the audit
+                Coming Soon
               </button>
             </a>
           </div>
@@ -445,12 +445,12 @@ const Token = () => {
             </div>
           )}
         </div>
-
+        
         <div className="flex">
           <div className="mt-20 font-bold text-[2.5rem] justify-center flex-wrap flex flex-1 flex-col items-center text-center text-[black] ">
             <h1 className="mb-10">Our Partners</h1>
             <div className="flex flex-row m-auto mb-6 mx-20 my-2">
-              <a href="#" target="_blank">
+              {/* <a href="#" target="_blank">
                 <img
                   className="m-auto sm:w-[65%] md:w-[50%] lg:w-[50%] "
                   src={partner4}
@@ -461,7 +461,7 @@ const Token = () => {
                   className="m-auto  sm:w-[70%] md:w-[50%] lg:w-[50%] "
                   src={partner9}
                 />
-              </a>
+              </a> */}
               <a href="#" target="_blank">
                 <img
                   src={partner1}
