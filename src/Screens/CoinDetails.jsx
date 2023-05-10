@@ -304,7 +304,7 @@ const CoinDetails = () => {
                                     <svg className={!collapse1 ? "rotate-180" : ""} width="20" height="17" viewBox="0 0 28 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.728676 1.45065C1.12112 1.08129 1.58283 0.890834 2.11379 0.879291C2.64475 0.867749 3.10646 1.0582 3.49891 1.45065L13.9912 11.9429L24.4834 1.45065C24.8528 1.08129 25.3087 0.885063 25.8512 0.861977C26.3937 0.838892 26.8612 1.02357 27.2536 1.41602C27.6461 1.78539 27.8481 2.24709 27.8596 2.80114C27.8712 3.35518 27.6807 3.81689 27.2883 4.18625L15.1339 16.3753C14.9723 16.5369 14.7934 16.6581 14.5971 16.7389C14.4009 16.8197 14.1989 16.8601 13.9912 16.8601C13.7834 16.8601 13.5814 16.8197 13.3852 16.7389C13.1889 16.6581 13.01 16.5369 12.8484 16.3753L0.694048 4.22088C0.324684 3.85152 0.14 3.39558 0.14 2.85308C0.14 2.31058 0.336226 1.8431 0.728676 1.45065Z" fill="currentColor" /></svg>
                                 </div>
                                 <div className={!collapse1 ? "block" : "hidden"}>
-                                    <iframe width="100%" height="500" src={`https://coinbrain.com/embed/${state.coin.symbol.toLowerCase()}-${state.coin?.address}?theme=dark&padding=16&chart=1&trades=0`}></iframe>
+                                    <iframe width="100%" height="500" src={`https://coinbrain.com/embed/${state.coin.chain.toLowerCase()}-${state.coin?.address}?theme=dark&padding=16&chart=1&trades=0`}></iframe>
                                 </div>
                             </div>
                             <div onClick={() => setcollapse2(!collapse2)} className={`${!collapse2 ? "w-full" : "md:w-[45%]"} pl-[1rem] cursor-pointer w-full bg-primary border border-white rounded-[20px] flex flex-col pr-[10px]`}>
